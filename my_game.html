@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>我的游戏</title>
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="format-detection" content="telephone=no">
+    {include file="/css" /}
+    <link rel="stylesheet" href="http://at.alicdn.com/t/font_gk31g2i7m9jatt9.css"/>
+    <link rel="stylesheet" href="__PUBLIC__/css/ui-dialog.css">
+</head>
+<body>
+<!-- head -->
+{include file="/head" /}
+<!-- nav -->
+{include file="/nav" /}
+<div class="c"></div>
+<div class="per-nav-box">
+    <p class="per-nav-gps wp">
+        <span>首页</span>
+        <img src="http://img.guxuantang.com/jt-right.png" alt="">
+        <span>个人中心</span>
+        <img src="http://img.guxuantang.com/jt-right.png" alt="">
+        <span class="per-nav-class">我的积分</span>
+    </p>
+</div>
+
+<section style="background: #f7f7f7">
+    <div class="wp clb">
+        <div class="sec-left-box">
+            <ul>
+                <li>
+                    <a href="{$base_url}/user/index">
+                        <div class="sec-content">
+                            <i class="iconfont icon-vipffb400"></i>
+                            <span>我的高级课</span>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="{$base_url}/user/my_questions">
+                        <div class="sec-content">
+                            <i class="iconfont icon-tiwen"></i>
+                            <span>我的提问</span>
+                        </div>
+                    </a>
+                </li>
+                <!-- <li>
+                    <a href="">
+                        <div class="sec-content">
+                            <i class="iconfont icon-shoucang"></i>
+                            <span>我的收藏</span>
+                        </div>
+                    </a>
+                </li> -->
+                <li>
+                    <a href="{$base_url}/user/my_order">
+                        <div class="sec-content">
+                            <i class="iconfont icon-dingdan"></i>
+                            <span>我的订单</span>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="{$base_url}/user/my_coupon">
+                        <div class="sec-content">
+                            <i class="iconfont icon-youhuiquan"></i>
+                            <span>优惠信息</span>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="{$base_url}/user/base_info">
+                        <div class="sec-content">
+                            <i class="iconfont icon-jibenxinxi"></i>
+                            <span>基本信息</span>
+                        </div>
+                    </a>
+                </li>
+                <li class="sec-center-cur">
+                    <a href="{$base_url}/user/my_point">
+                        <div class="sec-content">
+                            <i class="iconfont icon-dingdan"></i>
+                            <span>我的积分</span>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="{$base_url}/user/my_point_record">
+                        <div class="sec-content">
+                            <i class="iconfont icon-dingdan"></i>
+                            <span>我的记录</span>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="{$base_url}/user/my_code">
+                        <div class="sec-content">
+                            <i class="iconfont icon-dingdan"></i>
+                            <span>我的兑换码</span>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="{$base_url}/user/safe_set">
+                        <div class="sec-content">
+                            <i class="iconfont icon-shezhi"></i>
+                            <span>安全设置</span>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="{$base_url}/user/system_message">
+                        <div class="sec-content sec-content-01">
+                            <i class="iconfont icon-note"></i>
+                            <span>系统消息</span>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="sec-right-box">
+            <div class="sec-right-04">
+                <div class="poi-title-one">
+                    <p>剩余积分：{$user_info.point_now}<span></span></p>
+                    <!--<p>即将过期积分：<span></span></p>-->
+                </div>
+                <ul class="poi-title-two">
+                    <li><a href="{$base_url}/user/my_point">每日签到</a></li>
+                    <li><a href="{$base_url}/user/my_work">每日任务</a></li>
+                    <li><a href="{$base_url}/user/my_game" class="activeColor">积分游戏</a></li>
+                </ul>
+                <div class="day-sign">
+                    <ul id="point-game">
+                        <li>
+                            <div class="point-game-title">幸运大转盘</div>
+                            <ul class="point-game-photo">
+                                {volist name='game_dial' id='d'}
+                                <li class="item item-{$d.id}">
+                                    <div class="gift gift-{$d.id}">
+                                        <div>{$d.gift_name}</div>
+                                        <div><img src="{$d.gift_image}" alt=""></div>
+                                    </div>
+                                </li>
+                                {/volist}
+                                <li class="item " id="idChou">
+                                    <div class="chou"><img src="/static/index/images/point-15.png" alt=""></div>
+                                </li>
+                            </ul>
+                            <div class="point-game-intro">
+                                <p>说明：</p>
+                                <p>1. 每次抽奖自动消耗账户{$game_config.c_point}积分；</p>
+                                <p>2. 点击开始抽奖后，指针随机转动，停止后指针所指向区域即为抽奖结果；</p>
+                            </div>
+                        </li>
+                        <li style="position: relative" id="gua-alert">
+                            <div class="point-game-title">积分刮刮乐</div>
+                            <div class="point-game-photo02">
+                                <div id="mask_img_bg">
+                                    <span class="cont-span"></span>
+                                </div>
+                                <span class="point-num">200积分刮一次</span>
+                                <img id="redux" src="/static/index/images/point-12.png"/>
+                            </div>
+                            <div class="point-game-intro">
+                                <p>说明：</p>
+                                <p>1. 参加积分刮刮乐，每次自动消耗账户200积分；</p>
+                                <p>2. 点击上图刮奖区域，即可看到该次刮刮乐的中奖结果；</p>
+                                <p>3. 奖项设置：积分刮刮乐最低奖励为50积分，最高奖项为精品半年课权限， 更有iPhone 7Plus、高级月课、季课等超值大奖等您拿；</p>
+                            </div>
+
+                        </li>
+                        <li>
+                            <div class="point-game-title">积分换大礼</div>
+                            <div class="point-game-content">
+                                {volist name='gift_config' id='g'}
+                                <ul>
+                                    <li>{$g.gift_name}</li>
+                                    <li><img src="{$g.gift_image}" alt=""></li>
+                                    <li>
+                                        <div>{$g.gift_point}积分</div>
+                                        <div class="game-code">立即兑换</div>
+                                    </li>
+                                    <li>
+                                        <div class="game_cancel">×</div>
+                                        <p>恭喜您，已兑换成功</p>
+                                        <p>兑换码：<span></span></p>
+                                        <input type="hidden" value="{$g.id}" class="change_id">
+                                    </li>
+                                    <li>
+                                        <div class="game_cancel">×</div>
+                                        <p></p>
+                                    </li>
+                                </ul>
+                                {/volist}
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<div class="c"></div>
+<!-- 底部 -->
+{include file="/foot"/}
+</body>
+<script type="text/javascript" src="__PUBLIC__/js/jquery.js"></script>
+<script type="text/javascript" src="__PUBLIC__/js/jquery.eraser.js"></script>
+<script type="text/javascript" src="__PUBLIC__/js/dialog-min.js"></script>
+<script type="text/javascript">
+    $(function () {
+        //刮刮乐
+        $('.activeColor').click(function () {
+            window.location.reload();
+        });
+
+        var thanks;
+        var resp = '';
+        $.post('__URL__/gua_prob', {}, function (data) {
+            if (data.code === 0) {
+                $('.point-game-photo02').mousedown(function () {
+                    dialog({
+                        width: 300,
+                        height: 30,
+                        title: "提示",
+                        content: data.msg,
+                        quickClose: true
+                    }).show();
+                });
+            } else {
+                $('.point-game-photo02').mousedown(function () {
+                    $('.point-num').css('display', 'none');
+                    $('.point-num').css('pointer-events', 'none');
+                });
+                $('#redux').eraser({
+                    size: 50,   //设置橡皮擦大小
+                    completeRatio: .5, //设置擦除面积比例
+                    completeFunction: showResetButton   //大于擦除面积比例触发函数
+                });
+                resp = JSON.parse(data);
+                arrinfo = resp.content_int;
+                thanks = true;
+                $("#mask_img_bg>span").text(arrinfo);
+            }
+        });
+        function showResetButton() {
+            $(".prize-span").text(arrinfo);
+            //中奖后的效果
+            if (thanks == true) {
+                var _html =
+                    `<div class="gua-alert">
+                        <div id="gua-close">×</div>
+                        ${resp.content_out}
+                    </div>
+                    `
+                $('#gua-alert').append(_html);
+            }
+            $('#gua-close').click(function () {
+                $(this).parent().hide();
+                window.location.reload();
+            });
+        }
+
+
+        //抽奖转盘
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': 'sbJom5XF7nQKWPySBu61kO8LNhA3fArjQn9HYJjM'
+            }
+        });
+        var __runing__ = false;
+        $('.chou').click(function () {
+            if (__runing__)return;
+            __runing__ = true;
+            $('#idChou').css('transition', "none");
+            $('#idChou').css('transform', "rotate(0deg)");
+            $.post("__URL__/dial_prob", {}, function (data) {
+                if (data.code === 0) {
+                    setTimeout(function () {
+                        __runing__ = false;
+                        dialog({
+                            width: 300,
+                            height: 30,
+                            title: "提示",
+                            content: data.msg,
+                            quickClose: true
+                        }).show();
+                    })
+                } else {
+                    data = JSON.parse(data);
+                    var numSecond = parseInt(Math.random() * 5 + 4);  //获取 随机数 [4-9)
+                    $('#idChou').css('transition', "All " + numSecond + "s cubic-bezier(0.1, 0.3, 0, 0.46)");
+                    var num = 10;  //获取 随机数 [3-11)
+                    var rotate = num * 360 + (data.id - 1) * 45 + parseInt(Math.random() * 35 + 4);  //转多少度
+                    $('#idChou').css('transform', "rotate(" + rotate + "deg)");
+                    setTimeout(function () {
+                        __runing__ = false;
+                        dialog({
+                            width: 300,
+                            height: 30,
+                            title: "提示",
+                            content: data.content,
+                            quickClose: true
+                        }).show();
+                    }, (numSecond) * 1000);
+                }
+            });
+        });
+
+
+        //兑换码
+        var _code = true;
+        $('.game-code').click(function () {
+            if (_code === false) {
+                return;
+            }
+            var that = this;
+            var id = $(this).parent().next().find('input').val();
+            $.post('__URL__/get_gift', {id: id}, function (data) {
+                if (data.code === 0) {
+                    $(that).parent().next().next().find("p").html(data.msg);
+                    $(that).parent().next().next().show();
+                } else {
+                    $(that).parent().next().find("span").html(data);
+                    $(that).parent().next().show();
+                }
+            });
+            _code = false;
+        });
+        $('.game_cancel').click(function () {
+            $(this).parent().hide();
+            _code = true;
+        });
+    });
+
+
+</script>
+</html>

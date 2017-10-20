@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>我的积分</title>
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="format-detection" content="telephone=no">
+    {include file="/css" /}
+    <link rel="stylesheet" href="http://at.alicdn.com/t/font_gk31g2i7m9jatt9.css"/>
+</head>
+<body>
+<!-- head -->
+{include file="/head" /}
+<!-- nav -->
+{include file="/nav" /}
+<div class="c"></div>
+<div class="per-nav-box">
+    <p class="per-nav-gps wp">
+        <span>首页</span>
+        <img src="http://img.guxuantang.com/jt-right.png" alt="">
+        <span>个人中心</span>
+        <img src="http://img.guxuantang.com/jt-right.png" alt="">
+        <span class="per-nav-class">我的积分</span>
+    </p>
+</div>
+
+<section style="background: #f7f7f7">
+    <div class="wp clb">
+        <div class="sec-left-box">
+            <ul>
+                <li>
+                    <a href="{$base_url}/user/index">
+                        <div class="sec-content">
+                            <i class="iconfont icon-vipffb400"></i>
+                            <span>我的高级课</span>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="{$base_url}/user/my_questions">
+                        <div class="sec-content">
+                            <i class="iconfont icon-tiwen"></i>
+                            <span>我的提问</span>
+                        </div>
+                    </a>
+                </li>
+                <!-- <li>
+                    <a href="">
+                        <div class="sec-content">
+                            <i class="iconfont icon-shoucang"></i>
+                            <span>我的收藏</span>
+                        </div>
+                    </a>
+                </li> -->
+                <li>
+                    <a href="{$base_url}/user/my_order">
+                        <div class="sec-content">
+                            <i class="iconfont icon-dingdan"></i>
+                            <span>我的订单</span>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="{$base_url}/user/my_coupon">
+                        <div class="sec-content">
+                            <i class="iconfont icon-youhuiquan"></i>
+                            <span>优惠信息</span>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="{$base_url}/user/base_info">
+                        <div class="sec-content">
+                            <i class="iconfont icon-jibenxinxi"></i>
+                            <span>基本信息</span>
+                        </div>
+                    </a>
+                </li>
+                <li class="sec-center-cur">
+                    <a href="{$base_url}/user/my_point">
+                        <div class="sec-content">
+                            <i class="iconfont icon-dingdan"></i>
+                            <span>我的积分</span>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="{$base_url}/user/my_point_record">
+                        <div class="sec-content">
+                            <i class="iconfont icon-dingdan"></i>
+                            <span>我的记录</span>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="{$base_url}/user/my_code">
+                        <div class="sec-content">
+                            <i class="iconfont icon-dingdan"></i>
+                            <span>我的兑换码</span>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="{$base_url}/user/safe_set">
+                        <div class="sec-content">
+                            <i class="iconfont icon-shezhi"></i>
+                            <span>安全设置</span>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="{$base_url}/user/system_message">
+                        <div class="sec-content sec-content-01">
+                            <i class="iconfont icon-note"></i>
+                            <span>系统消息</span>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="sec-right-box">
+            <div class="sec-right-04">
+                <div class="poi-title-one">
+                    <p>剩余积分：{$point_now}<span></span></p>
+                    <!--<p>即将过期积分：<span></span></p>-->
+                </div>
+                <ul class="poi-title-two">
+                    <li><a href="{$base_url}/user/my_point" class="activeColor">每日签到</a></li>
+                    <li><a href="{$base_url}/user/my_work">每日任务</a></li>
+                    <li><a href="{$base_url}/user/my_game">积分游戏</a></li>
+                </ul>
+                <div class="day-sign">
+                    <div class="poi-sign-one">
+                        <div class="poi-sign-left">
+                            <img src="/static/index/images/point-01.jpg" alt="">
+                        </div>
+                        <div class="poi-sign-right">
+                            <img src="/static/index/images/point-02.png" alt="">
+                        </div>
+                    </div>
+                    <div class="poi-sign-two">
+                        <div class="poi-two-title">
+                            <img src="/static/index/images/point-03.jpg" alt="">
+                        </div>
+                        <ul class="poi-two-con">
+
+                        </ul>
+                    </div>
+                    <div class="poi-sign-three">
+                        <div class="poi-three-title">
+                            <img src="/static/index/images/point-04.jpg" alt="">
+                        </div>
+                        <div class="poi-three-center">
+                            您已累计签到 ：<span>{$sign_total}</span>天
+                        </div>
+                        <ul class="poi-three-bott">
+                            {volist name='total_day_list' id='t'}
+                            <li><img src="/static/index/images/point-08.png" alt="" class="point_img" data-id="{$t.id}"
+                                     data-type="{$t.type}"><span>{$t.total_day}天</span>
+                            </li>
+                            {/volist}
+                        </ul>
+                    </div>
+                    <div class="poi-sign-three poi-sign-four" id="poi-sign-four">
+                        <div class="poi-three-title">
+                            <img src="/static/index/images/point-05.jpg" alt="">
+                        </div>
+                        <div class="poi-three-center">
+                            您已连续签到 ：<span>{$sign_continue}</span>天
+                        </div>
+                        <ul class="poi-three-bott poi-four-bott">
+                            {volist name='continue_day_list' id='c'}
+                            <li><img src="/static/index/images/point-08.png" class="point_img" alt="" data-id="{$c.id}"
+                                     data-type="{$c.type}"><span>{$c.continue_day}天</span>
+                                {/volist}
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+<div class="c"></div>
+<!-- 底部 -->
+{include file="/foot"/}
+</body>
+<script type="text/javascript" src="__PUBLIC__/js/jquery.js"></script>
+<script type="text/javascript">
+    $(function () {
+        var $img = $('.point_img');
+        var $poi_three_bott = $(".poi-three-bott");
+//        var _handleClick = true;
+        $poi_three_bott.on("mouseover", ".point_img", function () {
+            $(this).parent().find('p').css("display", "block");
+        });
+        $poi_three_bott.on("mouseleave", ".point_img", function () {
+            $(this).parent().find('p').css("display", "none");
+        });
+        $poi_three_bott.on("mouseover", ".point_img", function () {
+            $(this).parent().find('p').css("display", "block");
+        });
+        $poi_three_bott.on("mouseleave", ".point_img", function () {
+            $(this).parent().find('p').css("display", "none");
+        });
+
+        $poi_three_bott.on("click", ".point_img", function () {
+//            if (_handleClick === false) {
+//                return false;
+//            }
+            var that = this;
+            var gift_id = $(this).attr('data-id');
+            $.post('sign_gift', {gift_id: gift_id}, function (data) {
+                var gift = ` <div class="gift">\
+                                    <span>  ${data.msg} </span>\
+                                    <button class="ok"> 确定 </button>\
+                                    </div> \ `;
+                if (data.code === 1) {
+                    $(gift).appendTo($(that).parent())
+                } else {
+                    $(gift).appendTo($(that).parent())
+                }
+                $('.ok').click(function () {
+                    $(this).parent().hide();
+                    if (data.code === 1) {
+                        $(that).parent().find('img').attr('src', '/static/index/images/point-19.png')
+                    }
+                });
+            })
+        });
+        $.each($img, function (i, n) {
+            var data_type = $(this).attr('data-type');
+            if (data_type === '未开启') {
+                $(this).attr('src', '/static/index/images/point-08.png')
+            }
+            else if (data_type === '开启') {
+                $(this).attr('src', '/static/index/images/point-19.png')
+//                _handleClick = false;
+            }
+        });
+        //日历  签到
+        var $dateBox = $(".poi-two-con"),
+            _html = '',
+            myDate = new Date(),
+            _handle = true,
+            _smileHtml = '';
+        for (var i = 1; i <= 35; i++) {
+            _html += '<li></li>'
+        }
+        $dateBox.html(_html);
+        var $dateLi = $dateBox.find("li");
+        var currentDay = myDate.getDate() - 1;
+        _smileHtml = '<div><img src="/static/index/images/point_smile.png" alt=""></div>';
+        $.post(
+            'my_point',
+            {},
+            function (data) {
+                data = JSON.parse(data);
+                for (var i = 0; i <= data.length; i++) {
+                    $dateLi.eq(i).addClass("date" + parseInt(i));
+                    $dateLi.eq(i).html(i + 1);
+                    $(".date" + data.length).html('');
+                    if (data[i]['is_sign'] == true) {
+                        $(".date" + i).append(_smileHtml);
+                    }
+                }
+            }
+        );
+        $('.poi-sign-right').click(function () {
+            if (_handle === false) {
+                alert('今日已签到!')
+            }
+            if (!_handle) {
+                return;
+            }
+            if (parseInt($(".date" + currentDay).text() - 1) === currentDay && _handle === true) {
+                $(".date" + currentDay).append(_smileHtml);
+            }
+            $.post(
+                'every_sign',
+                {},
+                function (data) {
+                    if (data.code === 1) {
+                        alert(data.msg)
+                    }
+                    else if (data.code === 0) {
+                        alert('今日已签到!')
+                    }
+                }
+            );
+            _handle = false;
+            location.reload()
+        });
+    })
+</script>
+</html>
